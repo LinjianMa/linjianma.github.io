@@ -1,1242 +1,676 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="en">
 <head>
-
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="theme" content="hugo-academic">
-  <meta name="generator" content="Hugo 0.30.2" />
-  <meta name="author" content="Linjian Ma">
-  <meta name="description" content="Ph.D. Candidate in Computer Science">  
-    
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/github-gist.min.css">
-    
-  <link rel="stylesheet" href="/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/css/font-awesome.min.css">
-  <link rel="stylesheet" href="/css/academicons.min.css">
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700|Merriweather|Roboto+Mono">
-  <link rel="stylesheet" href="/css/hugo-academic.css">
-  
-  <link rel="stylesheet" href="/css/main.css">
-  
-  <link rel="alternate" href="https://linjianma.github.io/index.xml" type="application/rss+xml" title="Linjian Ma">
-  <link rel="feed" href="https://linjianma.github.io/index.xml" type="application/rss+xml" title="Linjian Ma">
-
-  <link rel="icon" type="image/png" href="/img/icon.png">
-  <link rel="apple-touch-icon" type="image/png" href="/img/apple-touch-icon.png">
-
-  <link rel="canonical" href="https://linjianma.github.io/">
-
-  
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Linjian Ma</title>
 
+  <!-- Fonts -->
+  <link rel="icon" type="image/png" href="https://linjianma.github.io/img/logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* Base */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #ffffff;
+      color: #111827;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* Layout */
+
+    header {
+      border-bottom: 1px solid #e5e7eb;
+      padding: 1.4rem 2.4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(10px);
+      z-index: 10;
+    }
+
+    .brand {
+      font-family: "Space Grotesk", system-ui, sans-serif;
+      letter-spacing: 0.12em;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+    }
+
+    nav {
+      font-size: 0.9rem;
+    }
+
+    nav a {
+      margin-left: 1.6rem;
+      text-decoration: none;
+      color: #111827;
+      white-space: nowrap;
+    }
+
+    .page {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 2.2rem 2.4rem 3.5rem;
+    }
+
+    section {
+      margin-top: 3rem;
+    }
+
+    section + section {
+      border-top: 1px solid #e5e7eb;
+      padding-top: 2.5rem;
+    }
+
+    h1, h2 {
+      font-family: "Space Grotesk", system-ui, sans-serif;
+      font-weight: 500;
+    }
+
+    h1 {
+      font-size: 2.3rem;
+      margin-bottom: 0.4rem;
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .section-subtitle {
+      font-size: 0.9rem;
+      color: #6b7280;
+      margin-bottom: 1.4rem;
+    }
+
+    /* Hero */
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 2.6fr) minmax(0, 1.4fr);
+      column-gap: 2rem;
+      row-gap: 2rem;
+      align-items: start;
+      margin-top: 1.5rem;
+    }
+
+    .hero-photo-card img {
+      /* max-width: 80%; */
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      /* border-radius: 8px; */
+    }
+
+    .hero-tagline {
+      font-size: 0.95rem;
+      color: #4b5563;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-meta {
+      font-size: 0.9rem;
+      color: #6b7280;
+      margin-top: 0.9rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin-top: 0.5rem;
+    }
+
+    .btn {
+      font-size: 0.9rem;
+      padding: 0.55rem 1rem;
+      border-radius: 999px;
+      border: 1px solid #d1d5db;
+      background: #fff;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.25rem;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: #111827;
+      color: #f9fafb;
+      border-color: #111827;
+    }
+
+    .btn span.arrow {
+      font-size: 1.1rem;
+      transform: translateY(1px);
+    }
+
+    .hero-photo-card {
+    border-radius: 10px;
+    border: 1px solid #e5e7eb;
+    padding: 0.6rem;
+    background: #f9fafb;
+    align-self: center;   /* 2. vertically center the card */
+}
+
+    .hero-photo-wrapper {
+      border-radius: 8px;
+      overflow: hidden;
+      background: #e5e7eb;
+      aspect-ratio: 3 / 4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #6b7280;
+      font-size: 0.9rem;
+      text-align: center;
+      padding: 0.8rem;
+    }
+
+    .hero-photo-footer {
+      font-size: 0.85rem;
+      color: #6b7280;
+      margin-top: 0.7rem;
+      display: flex;
+      justify-content: space-between;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .pill {
+      font-size: 0.75rem;
+      padding: 0.18rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid #e5e7eb;
+      background: #ffffff;
+      color: #4b5563;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+    }
+
+    /* Generic card */
+
+    .card {
+      border-radius: 10px;
+      border: 1px solid #e5e7eb;
+      padding: 1.2rem 1.3rem;
+      background: #fcfcfc;
+    }
+
+    /* Announcements */
+
+    .announcement-list {
+      list-style: none;
+      margin-top: 0.4rem;
+    }
+
+    .announcement-item {
+      display: flex;
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+
+    .announcement-date {
+      width: 5rem;
+      flex-shrink: 0;
+      color: #6b7280;
+      font-size: 0.85rem;
+    }
+
+    .announcement-main strong {
+      font-weight: 500;
+    }
+
+    /* Awards */
+
+    .award-list div {
+      margin-bottom: 0.6rem;
+      font-size: 0.95rem;
+    }
+
+    .award-year {
+      color: #6b7280;
+      margin-right: 0.4rem;
+      font-size: 0.9rem;
+    }
+
+    /* Publications */
+
+    .pub-item {
+      margin-bottom: 1.1rem;
+      font-size: 0.95rem;
+    }
+
+    .pub-title {
+      font-weight: 500;
+      margin-bottom: 0.15rem;
+    }
+
+    .pub-meta {
+      font-size: 0.88rem;
+      color: #6b7280;
+    }
+
+    /* Blog */
+
+    .blog-list {
+      margin-top: 0.5rem;
+    }
+
+    .blog-item {
+      display: flex;
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    .blog-date {
+      width: 5rem;
+      flex-shrink: 0;
+      color: #6b7280;
+      font-size: 0.85rem;
+    }
+
+    .blog-title {
+      font-weight: 500;
+    }
+
+    .blog-author {
+      font-size: 0.85rem;
+      color: #6b7280;
+    }
+
+    /* Footer */
+
+    footer {
+      border-top: 1px solid #e5e7eb;
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      padding-bottom: 2.5rem;
+      font-size: 0.85rem;
+      color: #6b7280;
+      text-align: left;
+    }
+
+    .footer-links {
+      margin-top: 0.3rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    /* Responsive */
+
+    @media (max-width: 840px) {
+      header {
+        padding: 1.2rem 1.3rem;
+      }
+
+      .page {
+        padding: 1.8rem 1.3rem 2.7rem;
+      }
+
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      nav {
+        display: none;
+      }
+    }
+  </style>
 </head>
-<body id="top" data-spy="scroll" data-target="#navbar-main" data-offset="71">
 
-<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
-  <div class="container">
+<body>
 
-    
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-              data-target=".navbar-collapse" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="/">Linjian Ma (马林健)</a>
-    </div>
-
-    
-    <div class="collapse navbar-collapse">
-
-      
-      <ul class="nav navbar-nav navbar-right">
-        
-
-        
-
-        <li class="nav-item">
-          <a href="/#about" data-target="#about">
-            
-            <span>Home</span>
-          </a>
-        </li>
-
-        <li class="nav-item">
-          <a href="/#Announcements" data-target="#Announcements">
-            
-            <span>Announcements</span>
-          </a>
-        </li>
-
-        <li class="nav-item">
-          <a href="/#publications" data-target="#publications">
-            
-            <span>Publications</span>
-          </a>
-        </li> 
-
-<!--         <li class="nav-item">
-          <a href="/#posts" data-target="#posts">
-            
-            <span>Posts</span>
-          </a>
-        </li>
-
-        <li class="nav-item">
-          <a href="/#projects" data-target="#projects">
-            
-            <span>Projects</span>
-          </a>
-        </li> -->
-
-<!--         <li class="nav-item">
-          <a href="/#talks" data-target="#talks">
-            
-            <span>Talks</span>
-          </a>
-        </li> -->
-
-        <li class="nav-item">
-          <a href="/#awards" data-target="#awards">
-            
-            <span>Awards</span>
-          </a>
-        </li>
-
-        <li class="nav-item">
-          <a href="/#contact" data-target="#contact">
-            
-            <span>Contact</span>
-          </a>
-        </li>
-
-        
-        
-      </ul>
-
-    </div>
-  </div>
+  <header>
+    <div class="brand">LINJIAN MA (马林健)</div>
+<nav>
+  <a href="#about">About</a>
+  <!-- <a href="#announcements">Announcements</a> -->
+  <a href="#publications">Publications</a>
+  <a href="#awards">Awards</a>
+  <a href="blog.html">Blog</a>
 </nav>
+  </header>
 
+  <main class="page">
 
-
-<span id="homepage" style="display: none"></span>
-
-
-
-  
-  
-  <section id="about" class="home-section">
-    <div class="container">
-      
-
-
-
-<div class="row" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <div class="col-xs-12 col-md-4">
-    <div id="profile">
-
-      
-      <div class="portrait" itemprop="image"
-           style="background-image: url('/img/portrait.jpg');">
-      </div>
-      
-
-      <div class="portrait-title">
-        <h2 itemprop="name">Linjian Ma</h2>
-        <h3 itemprop="jobTitle">Staff Research Scientist</h3>
-        
-        <h3 itemprop="worksFor">
-          
-          Meta Platforms
-          
-        </h3>
-        
-      </div>
-
-      <ul class="social-icon" aria-hidden="true">
-        
-        
-        <li>
-          <a href="mailto:malinjianev@gmail.com" target="_blank">
-            <i class="fa fa-envelope big-icon"></i>
-          </a>
-        </li>
-        
-        
-        <li>
-          <a href="https://scholar.google.com/citations?user=j4DDmQ0AAAAJ&hl=en" target="_blank">
-            <i class="ai ai-google-scholar big-icon"></i>
-          </a>
-        </li>
-        
-        
-        <li>
-          <a href="https://www.researchgate.net/profile/Linjian_Ma" target="_blank">
-            <i class="ai ai-researchgate big-icon"></i>
-          </a>
-        </li>
-        
-        
-        <li>
-          <a href="//github.com/linjianma" target="_blank">
-            <i class="fa fa-github big-icon"></i>
-          </a>
-        </li>
-        
-        
-        <li>
-          <a href="https://www.linkedin.com/in/linjian-ma-601740b5/" target="_blank">
-            <i class="fa fa-linkedin big-icon"></i>
-          </a>
-        </li>
-        
-        
-<!--         <li>
-          <a href="//soundcloud.com/rileyx" target="_blank">
-            <i class="fa fa-soundcloud big-icon"></i>
-          </a>
-        </li> -->
-        
-        
-        <li>
-          <a href="//instagram.com/linjianma" target="_blank">
-            <i class="fa fa-instagram big-icon"></i>
-          </a>
-        </li>
-        
-      </ul>
-
-    </div>
-  </div>
-  <div class="col-xs-12 col-md-8" itemprop="description">
-
-    
-
-<h1 id="about-me">Bio</h1>
-
-<p>I am a staff research scientist at <a href="https://about.meta.com/"  target="_blank"> Meta Platforms</a>, working on recommendation systems.<p>
-
-<p>Previously, I was a PhD student in the <a href="http://lpna.cs.illinois.edu/"  target="_blank"> LPNA</a> and <a href="https://cs.illinois.edu/"  target="_blank"> CS Department</a> at UIUC, advised by <a href="http://solomonik.cs.illinois.edu/"  target="_blank">Edgar Solomonik</a>.
+    <!-- Hero -->
+    <section id="about" class="hero">
+      <div>
+        <h1>Linjian Ma</h1>
+<p class="hero-tagline">I am a staff research scientist at <a href="https://about.meta.com/"  target="_blank"> Meta Platforms</a>, working on recommendation systems.<p>
+<p class="hero-tagline">Previously, I received my PhD from <a href="http://lpna.cs.illinois.edu/"  target="_blank"> LPNA</a> and <a href="https://cs.illinois.edu/"  target="_blank"> CS Department</a> at UIUC, advised by <a href="http://solomonik.cs.illinois.edu/"  target="_blank">Edgar Solomonik</a>.
 Before that, I received my Master's degree from <a href="https://eecs.berkeley.edu/"  target="_blank"> EECS Department</a> at UC Berkeley and I finished my Undergraduate studies from <a href="http://ckc.zju.edu.cn/"  target="_blank"> Chu Kochen Honors College</a> at Zhejiang University.</p>
-
-
-<p>My research interests lie in the intersection of numerical algorithms, high performance computing, system and quantum simulation. In particular, I’m now focusing on developing efficient systems and numerical algorithms for tensor computations with applications in data analytics and quantum simulation. Previously, I worked on optimization and efficient numerical implementation of neural networks. </p>
-
-<p>Here is my <a href="https://linjianma.github.io/pdf/cv.pdf" target="_blank">Curriculum Vitae</a>.</p>
-
-
-    <div class="row">
-
-      
-      <div class="col-sm-6">
-        <h3>Interests</h3>
-        <ul class="ul-interests">
-          
-          <li>Numerical Linear Algebra</li>
-
-          <li>Recommendation Systems</li>
-
-          <li>Randomized Algorithms</li>
-          
-          <li>Scalable Systems for Tensor Algebra</li>
-
-          <li>Machine Learning Systems</li>
-          
-          <li>Parallel Computing</li>
-          
-          <li>High Dimensional Data Analysis</li>
-
-          <li>Optimization in Deep Learning</li>
-
-          <li>Quantum Computing</li>
-          
-        </ul>
-      </div>
-      
-      
-      <div class="col-sm-6">
-        <h3>Education</h3>
-        <ul class="ul-edu fa-ul">
-
-          <li>
-            <i class="fa-li fa fa-graduation-cap"></i>
-            <div class="description">
-              <p class="course">PhD in Computer Science, 2023</p>
-              <p class="institution">University of Illinois Urbana-Champaign</p>
-            </div>
-          </li>
-          
-          <li>
-            <i class="fa-li fa fa-graduation-cap"></i>
-            <div class="description">
-              <p class="course">MEng in Computer Science, 2019</p>
-              <p class="institution">University of California, Berkeley</p>
-            </div>
-          </li>
-          
-          <li>
-            <i class="fa-li fa fa-graduation-cap"></i>
-            <div class="description">
-              <p class="course">MS in Mechanical Engineering, 2018</p>
-              <p class="institution">University of Illinois Urbana-Champaign</p>
-            </div>
-          </li>
-          
-          <li>
-            <i class="fa-li fa fa-graduation-cap"></i>
-            <div class="description">
-              <p class="course">BE in Energy Engineering, 2016</p>
-              <p class="institution">Chu Kochen Honors College, Zhejiang University</p>
-            </div>
-          </li>
-          
-        </ul>
-      </div>
-
-
-
-  </div>
-</div>
-
-    </div>
-  </section>
-
-
-
-
-
-
-  <section id="Announcements" class="home-section">
-    <div class="container">
-      
-
-<div class="row">
-  <div class="col-xs-14 col-md-4 section-heading">
-    <h1>Announcements</h1>
-  </div>
-
-  <div class="col-xs-12 col-md-8">
-          <li>(September 2022) Our work on a systematic way to design efficient <a href="https://arxiv.org/abs/2205.13163" target="_blank"> tensor network embedding</a>  is accpted by <a href="https://nips.cc/" target="_blank"> NeurIPS 2022</a></a>.
-          <li>(September 2021) Our work on efficient and accurate <a href="https://arxiv.org/abs/2104.01101" target="_blank"> randomized algorithms for tensor decompositions</a>  is accpted by <a href="https://nips.cc/" target="_blank"> NeurIPS 2021</a></a>.
-          <li>(May 2021) Excited to be awarded the 2021-2022 <a href="https://publish.illinois.edu/engr-mavis/" target="_blank">Mavis Future Faculty Fellow</a> and the CS Department <a href="https://cs.illinois.edu/about/awards/graduate-fellowships-awards/kenichi-miura-award" target="_blank">Kenichi Miura Award</a>!
-          <li>(December 2020) Our work on <a href="https://arxiv.org/abs/2010.12056" target="_blank"> parallel CP decomposition</a> is accpted by <a href="https://www.ipdps.org/ipdps2021/2021-call-for-papers.html" target="_blank"> IPDPS 2021</a>.
-          <li>(October 2020) I received the Kuck Computational Science & Engineering Scholarship from UIUC Grainger College of Engineering.
-          <li>(July 2020) Our work on <a href="https://arxiv.org/abs/2005.04540" target="_blank"> AutoHOOT</a>, an automatic differentiation framework that is efficient for high-order numerical optimization for tensors, is accepted by <a href="https://pact20.cc.gatech.edu/" target="_blank">PACT 2020</a>. The software is available <a href="https://github.com/LinjianMa/AutoHOOT" target="_blank">here</a>.</li>
-          <li>(November 2019) Our work on <a href="https://arxiv.org/abs/1903.06237" target="_blank"> large batch training</a> and <a href="https://arxiv.org/abs/1909.05840" target="_blank">Q-BERT</a> are accepted by AAAI 2020.</li>
-          <!-- <li>(March 2019) I along with my teammates and advisors in UC Berkeley released a <a href="https://arxiv.org/abs/1903.06237" target="_blank">neural network paper</a> investigating the effect of K-FAC under large batch size training.</li> -->
-<!--           <li>(March 2019) I presented our work on pairwise perturbation tensor decomposition at Scientific Computing Seminar, see our <a href="https://linjianma.github.io/pdf/scicomptalk.pdf" target="_blank">slides</a>.</li>
- -->          <li>(March 2019) I received the <a href="https://cs.illinois.edu/about-us/awards/graduate-fellowships-awards/computer-science-gene-golub-fellowship" target="_blank">Computer Science Gene Golub Fellowship</a> from UIUC CS Department.</li>  
-          <li>(November 2018) We introduced <a href="https://arxiv.org/abs/1811.10573" target="_blank">pairwise perturbation</a>, a new approximate alternating least squares scheme for tensor decompositions requiring asymptotically less work.</li>
-          <li>(November 2018) Released a <a href="http://jes.ecsdl.org/content/165/14/F1232.abstract" target="_blank">simulation paper</a> advised by <a href="http://aluru.web.engr.illinois.edu/" target="_blank">Prof. N. R. Aluru</a> presenting a multiscale model for solid oxide electrochemical system. </li>
-          
-</div>
-
-
-</div>
-
-    </div>
-  </section>
-
-
-
-
-
-
-
-
-
-  
-  
-  <section id="publications" class="home-section">
-    <div class="container">
-      
-
-<div class="row">
-  <div class="col-xs-12 col-md-4 section-heading">
-    <h1>Recent Publications</h1>
-<!--     <p>Peer-reviewed Research</p>
- -->    
-  </div>
-  <div class="col-xs-12 col-md-8">
-        
-    <ul class="fa-ul">
-
-
-      <li itemscope itemtype="http://schema.org/CreativeWork">
-  <i class="fa-li fa fa-file-text-o pub-icon" aria-hidden="true"></i>
-   <div class="paper-title">
-        Approximate Contraction of Arbitrary Tensor Networks with a Flexible and Efficient Density Matrix Algorithm, 
-    </div>
-    <div >
-        L. Ma, M. Fishman, M. Stoudenmire, and E. Solomonik, 
-    </div>
-    <div >
-        Quantum, Preprint: arXiv:2406.09769, (2024)
-    </div>
-  <p>
-<a class="btn btn-primary btn-outline btn-xs" href="https://arxiv.org/abs/2406.09769" target="_blank">
-  Paper
-</a>
-</p>
-</li>
-
-
-
-      <li itemscope itemtype="http://schema.org/CreativeWork">
-  <i class="fa-li fa fa-file-text-o pub-icon" aria-hidden="true"></i>
-   <div class="paper-title">
-        Probing Human Visual Robustness with Neurally-Guided Deep Neural Networks
-    </div>
-    <div >
-        Z. Shao, L. Ma, B. Li, and D. Beck
-        Z. Shao, L. Ma, Y. Zhou, Y. Zhang, S. Koyejo, B. Li, D. Beck
-    </div>
-    <div >
-        Preprint: arXiv:2405.02564 (2024)
-    </div>
-  <p>
-<a class="btn btn-primary btn-outline btn-xs" href="https://arxiv.org/abs/2405.02564" target="_blank">
-  Paper
-</a>
-</p>
-</li>
-
-
-      <li itemscope itemtype="http://schema.org/CreativeWork">
-  <i class="fa-li fa fa-file-text-o pub-icon" aria-hidden="true"></i>
-   <div class="paper-title">
-        Towards Efficient Algorithms and Systems for Tensor Decompositions and Tensor Networks
-    </div>
-    <div >
-        L. Ma
-    </div>
-    <div >
-        Ph.D. Dissertation, University of Illinois Urbana-Champaign (2023)
-    </div>
-  <p>
-<a class="btn btn-primary btn-outline btn-xs" href="https://linjianma.github.io/pdf/dissertation.pdf" target="_blank">
-  Paper
-</a>
-<a class="btn btn-primary btn-outline btn-xs" href="https://linjianma.github.io/pdf/dissertation_talk.pdf" target="_blank">
-  Slides
-</a>
-</p>
-</li>
-
-
-
-      <li itemscope itemtype="http://schema.org/CreativeWork">
-  <i class="fa-li fa fa-file-text-o pub-icon" aria-hidden="true"></i>
-   <div class="paper-title">
-        Tensor Rank and Other Multipartite Entanglement Measures of Graph States
-    </div>
-    <div >
-        L. Schatzki, L. Ma, E. Solomonik and E. Chitambar
-    </div>
-    <div >
-        Physical Review A, Preprint: arXiv:2209.06320 (2022)
-    </div>
-  <p>
-<a class="btn btn-primary btn-outline btn-xs" href="https://arxiv.org/abs/2209.06320" target="_blank">
-  Paper
-</a>
-</p>
-</li>
-
-
-
-      <li itemscope itemtype="http://schema.org/CreativeWork">
-  <i class="fa-li fa fa-file-text-o pub-icon" aria-hidden="true"></i>
-   <div class="paper-title">
-        Cost-efficient Gaussian Tensor Network Embeddings for Tensor-structured Inputs
-    </div>
-    <div >
-        L. Ma and E. Solomonik
-    </div>
-    <div >
-        NeurIPS 2022, Preprint: arXiv:2205.13163 (2022)
-    </div>
-  <p>
-<a class="btn btn-primary btn-outline btn-xs" href="https://arxiv.org/abs/2205.13163" target="_blank">
-  Paper
-</a>
-</p>
-</li>
-
-
-
-      <li itemscope itemtype="http://schema.org/CreativeWork">
-  <i class="fa-li fa fa-file-text-o pub-icon" aria-hidden="true"></i>
-   <div class="paper-title">
-        Low Rank Approximation in Simulations of Quantum Algorithms
-    </div>
-    <div >
-        L. Ma and C. Yang
-    </div>
-    <div >
-        Journal of Computational Science, Preprint: arXiv:2104.11396 (2022)
-    </div>
-  <p>
-<a class="btn btn-primary btn-outline btn-xs" href="https://arxiv.org/abs/2104.11396" target="_blank">
-  Paper
-</a>
-<a class="btn btn-primary btn-outline btn-xs" href="https://linjianma.github.io/pdf/SIAMCSE21-talk.pdf" target="_blank">
-  Slides-SIAMCSE21
-</a>
-</p>
-</li>
-
-
-
-
-      <li itemscope itemtype="http://schema.org/CreativeWork">
-  <i class="fa-li fa fa-file-text-o pub-icon" aria-hidden="true"></i>
-   <div class="paper-title">
-        Accelerating Alternating Least Squares for Tensor Decomposition by Pairwise Perturbation
-    </div>
-    <div >
-        L. Ma and E. Solomonik
-    </div>
-    <div >
-        Numerical Linear Algebra with Applications, Preprint: arXiv:1811.10573 (2022) 
-    </div>
-  <p>
-<a class="btn btn-primary btn-outline btn-xs" href="https://arxiv.org/abs/1811.10573" target="_blank">
-  Paper
-</a>
-<a class="btn btn-primary btn-outline btn-xs" href="https://github.com/LinjianMa/tensor_decompositions" target="_blank">
-  Code
-</a>
-<a class="btn btn-primary btn-outline btn-xs" href="https://linjianma.github.io/pdf/scicomptalk.pdf" target="_blank">
-  Slides-UCB-SCSeminar19
-</a>
-<a class="btn btn-primary btn-outline btn-xs" href="https://linjianma.github.io/pdf/SIAMPP20-talk.pdf" target="_blank">
-  Slides-SIAMPP20
-</a>
-<a class="btn btn-primary btn-outline btn-xs" href="https://linjianma.github.io/pdf/SIAMPP20-poster.pdf" target="_blank">
-  Poster-SIAMPP20
-</a>
-</p>
-</li>
-
-
-
-      <li itemscope itemtype="http://schema.org/CreativeWork">
-  <i class="fa-li fa fa-file-text-o pub-icon" aria-hidden="true"></i>
-   <div class="paper-title">
-        Fast and Accurate Randomized Algorithms for Low-rank Tensor Decompositions
-    </div>
-    <div >
-        L. Ma and E. Solomonik
-    </div>
-    <div >
-        NeurIPS 2021, Preprint: arXiv:2104.01101 (2021) 
-    </div>
-  <p>
-<a class="btn btn-primary btn-outline btn-xs" href="https://arxiv.org/abs/2104.01101" target="_blank">
-  Paper
-</a>
-<a class="btn btn-primary btn-outline btn-xs" href="https://linjianma.github.io/pdf/SIAMLA21-talk.pdf" target="_blank">
-  Slides-SIAMLA21
-</a>
-<a class="btn btn-primary btn-outline btn-xs" href="https://linjianma.github.io/pdf/Neurips21_talk.pdf" target="_blank">
-  Slides-Neurips21
-</a>
-<a class="btn btn-primary btn-outline btn-xs" href="https://linjianma.github.io/pdf/Neurips21_poster.pdf" target="_blank">
-  Poster-Neurips21
-</a>
-</p>
-</li>
-
-
-
-
-      <li itemscope itemtype="http://schema.org/CreativeWork">
-  <i class="fa-li fa fa-file-text-o pub-icon" aria-hidden="true"></i>
-   <div class="paper-title">
-        MLPruning: A Multilevel Structured Pruning Framework for Transformer-based Models
-    </div>
-    <div >
-        Z. Yao, L. Ma, S. Shen, K. Keutzer, and M. W. Mahoney
-    </div>
-    <div >
-        Technical Report, Preprint: arXiv:2105.14636 (2021)
-    </div>
-  <p>
-<a class="btn btn-primary btn-outline btn-xs" href="https://arxiv.org/abs/2105.14636" target="_blank">
-  Paper
-</a>
-</p>
-</li>
-
-
-
-
-      <li itemscope itemtype="http://schema.org/CreativeWork">
-  <i class="fa-li fa fa-file-text-o pub-icon" aria-hidden="true"></i>
-   <div class="paper-title">
-        Comparison of Accuracy and Scalability of Gauss-Newton and Alternating Least Squares for CP Decomposition
-    </div>
-    <div >
-        N. Singh, L. Ma, H. Yang, and E. Solomonik
-    </div>
-    <div >
-        SIAM Journal on Scientific Computing (SISC), Preprint: arXiv:1910.12331 (2021) 
-    </div>
-  <p>
-<a class="btn btn-primary btn-outline btn-xs" href="https://arxiv.org/abs/1910.12331" target="_blank">
-  Paper
-</a>
-<a class="btn btn-primary btn-outline btn-xs" href="https://github.com/cyclops-community/tensor_decomposition" target="_blank">
-  Code
-</a>
-</p>
-</li>
-
-
-
-
-
-      <li itemscope itemtype="http://schema.org/CreativeWork">
-  <i class="fa-li fa fa-file-text-o pub-icon" aria-hidden="true"></i>
-   <div class="paper-title">
-        Efficient parallel CP decomposition with pairwise perturbation and multi-sweep dimension tree
-    </div>
-    <div >
-        L. Ma and E. Solomonik
-    </div>
-    <div >
-        International Parallel and Distributed Processing Symposium (IPDPS), Preprint: arXiv:2010.12056 (2021)
-    </div>
-  <p>
-<a class="btn btn-primary btn-outline btn-xs" href="https://arxiv.org/abs/2010.12056" target="_blank">
-  Paper
-</a>
-<a class="btn btn-primary btn-outline btn-xs" href="https://linjianma.github.io/pdf/IPDPS21-talk.pdf" target="_blank">
-  Slides-IPDPS21
-</a>
-<a class="btn btn-primary btn-outline btn-xs" href="https://github.com/LinjianMa/parallel-pp" target="_blank">
-  Code
-</a>
-</p>
-</li>
-
-
-
-
-
-
-      <li itemscope itemtype="http://schema.org/CreativeWork">
-  <i class="fa-li fa fa-file-text-o pub-icon" aria-hidden="true"></i>
-   <div class="paper-title">
-        AutoHOOT: Automatic High-Order Optimization for Tensors
-    </div>
-    <div >
-        L. Ma, J. Ye, and E. Solomonik
-    </div>
-    <div >
-        International Conference on Parallel Architectures and Compilation Techniques (PACT'20), Preprint: arXiv:2005.04540 (2020)
-    </div>
-  <p>
-<a class="btn btn-primary btn-outline btn-xs" href="https://arxiv.org/abs/2005.04540" target="_blank">
-  Paper
-</a>
-<a class="btn btn-primary btn-outline btn-xs" href="https://github.com/LinjianMa/AutoHOOT" target="_blank">
-  Code
-</a>
-<a class="btn btn-primary btn-outline btn-xs" href="https://linjianma.github.io/pdf/PACT20-talk.pdf" target="_blank">
-  Slides-PACT20
-</a>
-<a class="btn btn-primary btn-outline btn-xs" href="https://drive.google.com/file/d/1o16Q4xeYq_wjErd-nzL2IGs2Y9uekP8x/view?usp=sharing" target="_blank">
-  Video
-</a>
-</p>
-</li>
-
-
-
-      <li itemscope itemtype="http://schema.org/CreativeWork">
-  <i class="fa-li fa fa-file-text-o pub-icon" aria-hidden="true"></i>
-   <div class="paper-title">
-        Q-BERT: Hessian Based Ultra Low Precision Quantization of BERT
-    </div>
-    <div >
-        S. Shen, Z. Dong, J. Ye, L. Ma, Z. Yao, A. Gholami, M. W. Mahoney, and K. Keutzer,
-    </div>
-    <div >
-        AAAI 2020, Preprint: arXiv:1909.05840 (2020) 
-    </div>
-  <p>
-<a class="btn btn-primary btn-outline btn-xs" href="https://arxiv.org/abs/1909.05840" target="_blank">
-  Paper
-</a>
-<a class="btn btn-primary btn-outline btn-xs" href="https://linjianma.github.io/pdf/QBERT-poster.pdf" target="_blank">
-  Poster-AAAI20
-</a>
-</p>
-</li>
-
-
-      
-      <li itemscope itemtype="http://schema.org/CreativeWork">
-  <i class="fa-li fa fa-file-text-o pub-icon" aria-hidden="true"></i>
-   <div class="paper-title">
-        Inefficiency of K-FAC for Large Batch Size Training
-    </div>
-    <div >
-        L. Ma, G. Montague, J. Ye, Z. Yao, A. Gholami, K. Keutzer, and M. W. Mahoney,
-    </div>
-    <div >
-        AAAI 2020, Preprint: arXiv:1903.06237 (2020) 
-    </div>
-  <p>
-<!-- <a class="btn btn-primary btn-outline btn-xs" href="https://bradyrx.github.io/publication/co2-flux-variability-in-ebus/">
-  Details
-</a>
-<a class="btn btn-primary btn-outline btn-xs" href="https://bradyrx.github.io/pdf/Brady_et_al-2018-Biogeosciences.pdf">
-  PDF
-</a>
-<a class="btn btn-primary btn-outline btn-xs" href="https://bradyrx.github.io/pdf/Brady_et_al-2018-Biogeosciences_supplemental.pdf">
-  Supplemental
-</a> -->
-<a class="btn btn-primary btn-outline btn-xs" href="https://arxiv.org/abs/1903.06237" target="_blank">
-  Paper
-</a>
-<a class="btn btn-primary btn-outline btn-xs" href="https://linjianma.github.io/pdf/AAAI20-poster.pdf" target="_blank">
-  Poster-AAAI20
-</a>
-</p>
-</li>
-
-
-
-      <li itemscope itemtype="http://schema.org/CreativeWork">
-  <i class="fa-li fa fa-file-text-o pub-icon" aria-hidden="true"></i>
-   <div class="paper-title">
-        A Multiscale Model for Electrochemical Reactions in LSCF Based Solid Oxide Cells
-    </div>
-    <div >
-        L. Ma, P. Priya, and N. R. Aluru,
-    </div>
-    <div >
-        Journal of the Electrochemical Society (2018)
-    </div>
-  <p>
-<a class="btn btn-primary btn-outline btn-xs" href="https://iopscience.iop.org/article/10.1149/2.0921814jes" target="_blank">
-  Paper
-</a>
-<a class="btn btn-primary btn-outline btn-xs" href="https://linjianma.github.io/pdf/usnccmtalk.pdf" target="_blank">
-  Slides-USNCCM17
-</a>
-</p>
-</li>
-
-      <li itemscope itemtype="http://schema.org/CreativeWork">
-  <i class="fa-li fa fa-file-text-o pub-icon" aria-hidden="true"></i>
-   <div class="paper-title">
-        A Multiscale Model for the Oxide Ion Conducting and Proton Conducting Solid Oxide Cells
-    </div>
-    <div >
-        L. Ma
-    </div>
-    <div >
-        M.S. Thesis, University of Illinois Urbana-Champaign (2018)
-    </div>
-  <p>
-<a class="btn btn-primary btn-outline btn-xs" href="https://www.ideals.illinois.edu/handle/2142/101111" target="_blank">
-  Paper
-</a>
-<a class="btn btn-primary btn-outline btn-xs" href="https://linjianma.github.io/pdf/piretalk.pdf" target="_blank">
-  Slides
-</a>
-</p>
-</li>
-      
-
-      
-    </ul>
-  </div>
-</div>
-
-    </div>
-  </section>
-
-  
-<!-- <section id="posts" class="home-section">
-  <div class="container">
-
-
-<div class="row">
-  <div class="col-xs-12 col-md-4 section-heading">
-
-    <h1>Recent Posts</h1>
-    
-  </div>
-  <div class="col-xs-12 col-md-8">
-
-      
-<div class="article-list-item" itemscope itemprop="blogPost">
-  
-  
-  <h3 class="article-title" itemprop="name">
-    <a href="https://bradyrx.github.io/post/flexible-python-inputs/" itemprop="url">Flexible python scripts from the command line</a>
-  </h3>
-  
-
-<div class="article-metadata">
-
-  <span class="article-date">
-    <time datetime="2018-06-24 12:00:00 &#43;0000 UTC" itemprop="datePublished">
-      Sun, Jun 24, 2018
-    </time>
-  </span>
-  
-  
-  <span class="article-tags">
-    <i class="fa fa-tags"></i>
-    
-    <a href="/tags/python">python</a
-    >, 
-    
-    <a href="/tags/data-analysis">data analysis</a
-    >, 
-    
-    <a href="/tags/climate">climate</a
-    >, 
-    
-    <a href="/tags/tutorial">tutorial</a
-    >
-    
-  </span>
-
-
-</div>
-
-  <div class="article-style" itemprop="articleBody">
-    
-    <p>A tutorial for creating python scripts for data analysis that allow various inputs from the command line to make them more flexible.</p>
-    
-  </div>
-  <p class="read-more">
-    <a href="https://bradyrx.github.io/post/flexible-python-inputs/" class="btn btn-primary btn-outline">
-      CONTINUE READING
-    </a>
-  </p>
-</div>
-
-  </div>
-</div>
-
-    </div>
-  </section> -->
-
-  
-  
-<!--   <section id="projects" class="home-section">
-    <div class="container">
-      
-
-
-
-<div class="row">
-  <div class="col-xs-12 col-md-4 section-heading">
-    <h1>Projects</h1>
-    <p>Things I do outside of my research</p>
-  </div>
-  <div class="col-xs-12 col-md-8">
-    
-
-    <div class="project-toolbar">
-      <div id="filters">
-        <div class="btn-toolbar">
-          <div class="btn-group">
-          
-          </div>
+<p class="hero-tagline">My research interests lie in the intersection of numerical algorithms, high performance computing, system and quantum simulation. In particular, I’m now focusing on developing efficient systems and numerical algorithms for tensor computations with applications in data analytics and quantum simulation. Previously, I worked on optimization and efficient numerical implementation of neural networks. </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="https://linjianma.github.io/pdf/cv.pdf">
+            <span>CV</span>
+            <span class="arrow">↗</span>
+          </a>
+          <a class="btn" href="mailto:malinjianev@gmail.com">Email</a>
+          <a class="btn" href="https://scholar.google.com/citations?user=j4DDmQ0AAAAJ&hl=en" target="_blank" rel="noreferrer">
+            Google Scholar
+          </a>
+          <a class="btn" href="https://github.com/linjianma" target="_blank" rel="noreferrer">
+            GitHub
+          </a>
         </div>
       </div>
-    </div>
 
-    
+      <aside class="hero-photo-card">
+          <!-- Replace with your own image -->
+          <img src="https://linjianma.github.io/img/portrait.jpg" alt="Linjian Ma" />
+          <!-- <span>Your photo goes here. Replace this placeholder with an image file.</span> -->
+      </aside>
+    </section>
 
-    <div id="container-projects" class="isotope">
-      <ul class="fa-ul" style="position: relative">
+    <!-- Announcements -->
+<!--     <section id="announcements">
+      <h2>Announcements</h2>
+      <p class="section-subtitle">
+        Recent news. Edit or extend this list as you go.
+      </p>
+        <ul class="announcement-list">
+          <li class="announcement-item">
+            <div class="announcement-date">Nov 2025</div>
+            <div class="announcement-main">
+              <strong>ICLR rebuttal submitted.</strong>
+              Clarified how neural guidance and manifold geometry contribute to robust visual behavior.
+            </div>
+          </li>
+          <li class="announcement-item">
+            <div class="announcement-date">Oct 2025</div>
+            <div class="announcement-main">
+              <strong>Thesis chapters underway.</strong>
+              Writing on neural guidance, manifold disentanglement, and spatial frequency bias.
+            </div>
+          </li>
+          <li class="announcement-item">
+            <div class="announcement-date">May 2025</div>
+            <div class="announcement-main">
+              <strong>New preprint on arXiv.</strong>
+              Examining how neural aligned models reshape decision surfaces to become more human-like.
+            </div>
+          </li>
+        </ul>
+    </section> -->
 
-        
-        <li class="project-item isotope-item data-vis">
-          <span class="project-title">
-          
-            <a href="vis/adventure_map.html" target="_blank">
-          
-          <i class="fa-li fa fa-files-o pub-icon" aria-hidden="true"></i>
-          Adventure Map
-          </a>
-          </span>
-          <p class="project-summary">An interactive display of (recent) places my GPS watch has tracked me around the Boulder area. Purple is on the bike; red is in my running shoes; brown is hiking trails.</p>
-        </li>
-        
-        <li class="project-item isotope-item data-vis">
-          <span class="project-title">
-          
-            <a href="vis/NPZD-Model.html" target="_blank">
-          
-          <i class="fa-li fa fa-files-o pub-icon" aria-hidden="true"></i>
-          Nutrient-Phytoplankton-Zooplankton-Detritus Model
-          </a>
-          </span>
-          <p class="project-summary">An interactive visualization of a simple ecosystem model.</p>
-        </li>
-        
+    <!-- Publications -->
+    <section id="publications">
+      <h2>Publications</h2>
+        <div class="pub-item">
+          <div class="pub-title">
+            Approximate Contraction of Arbitrary Tensor Networks with a Flexible and Efficient Density Matrix Algorithm
+          </div>
+          <div class="pub-meta">
+            L. Ma, M. Fishman, M. Stoudenmire, and E. Solomonik, Quantum 2024
+            <br />
+            <a href="https://arxiv.org/abs/2406.09769" target="_blank">Paper</a> · <a href="https://github.com/ITensor/ITensorNetworks.jl" target="_blank">Code</a> · <a href="https://linjianma.github.io/pdf/2023_sparse_tensor_workshop.pdf" target="_blank">Slides</a>
+          </div>
+        </div>
 
-      </ul>
-    </div>
+        <div class="pub-item">
+          <div class="pub-title">
+            Probing Human Visual Robustness with Neurally-Guided Deep Neural Networks
+          </div>
+          <div class="pub-meta">
+            Z. Shao, L. Ma, B. Li, and D. Beck Z. Shao, L. Ma, Y. Zhou, Y. Zhang, S. Koyejo, B. Li, D. Beck, Preprint: arXiv:2405.02564 (2024)
+            <br />
+            <a href="https://arxiv.org/abs/2405.02564" target="_blank">Paper</a>
+          </div>
+        </div>
 
-    
+        <div class="pub-item">
+          <div class="pub-title">
+            Towards Efficient Algorithms and Systems for Tensor Decompositions and Tensor Networks
+          </div>
+          <div class="pub-meta">
+            L. Ma, Ph.D. Dissertation, University of Illinois Urbana-Champaign (2023)
+            <br />
+            <a href="https://www.ideals.illinois.edu/items/129136" target="_blank">Thesis</a> · <a href="https://linjianma.github.io/pdf/dissertation_talk.pdf" target="_blank">Slides</a>
+          </div>
+      </div>
 
-  </div>
-</div>
+        <div class="pub-item">
+          <div class="pub-title">
+            Tensor Rank and Other Multipartite Entanglement Measures of Graph States
+          </div>
+          <div class="pub-meta">
+            L. Schatzki, L. Ma, E. Solomonik and E. Chitambar, Physical Review A, 2024
+            <br />
+            <a href="https://journals.aps.org/pra/abstract/10.1103/PhysRevA.110.032409" target="_blank">Paper</a>
+          </div>
+      </div>
 
-    </div>
-  </section> -->
+        <div class="pub-item">
+          <div class="pub-title">
+            Cost-efficient Gaussian Tensor Network Embeddings for Tensor-structured Inputs
+          </div>
+          <div class="pub-meta">
+            L. Ma and E. Solomonik, NeurIPS 2022
+            <br />
+            <a href="https://dl.acm.org/doi/10.5555/3600270.3603095" target="_blank">Paper</a> · <a href="https://linjianma.github.io/pdf/2022_neurips_poster.pdf" target="_blank">Poster</a>
+          </div>
+      </div>
 
+        <div class="pub-item">
+          <div class="pub-title">
+            Low Rank Approximation in Simulations of Quantum Algorithms
+          </div>
+          <div class="pub-meta">
+            L. Ma and C. Yang, Journal of Computational Science, 2022
+            <br />
+            <a href="https://www.sciencedirect.com/science/article/abs/pii/S1877750322000047" target="_blank">Paper</a> · <a href="https://linjianma.github.io/pdf/SIAMCSE21-talk.pdf" target="_blank">Slides</a>
+          </div>
+      </div>
 
-<!--   <section id="talks" class="home-section">
-    <div class="container">
-      
+        <div class="pub-item">
+          <div class="pub-title">
+            Accelerating Alternating Least Squares for Tensor Decomposition by Pairwise Perturbation
+          </div>
+          <div class="pub-meta">
+            L. Ma and E. Solomonik, Numerical Linear Algebra with Applications, 2022
+            <br />
+            <a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/nla.2431" target="_blank">Paper</a> · <a href="https://linjianma.github.io/pdf/SIAMPP20-talk.pdf" target="_blank">Slides</a>
+          </div>
+      </div>
 
-<div class="row">
-  <div class="col-xs-12 col-md-4 section-heading">
-    <h1>Presentations</h1>  
-  </div>
-  <div class="col-xs-12 col-md-8">
-        
-    <ul class="fa-ul">
+        <div class="pub-item">
+          <div class="pub-title">
+            Fast and Accurate Randomized Algorithms for Low-rank Tensor Decompositions
+          </div>
+          <div class="pub-meta">
+            L. Ma and E. Solomonik, NeurIPS 2021
+            <br />
+            <a href="https://dl.acm.org/doi/10.5555/3540261.3542121" target="_blank">Paper</a> · <a href="https://linjianma.github.io/pdf/Neurips21_talk.pdf" target="_blank">Slides</a>
+          </div>
+      </div>
 
+        <div class="pub-item">
+          <div class="pub-title">
+            MLPruning: A Multilevel Structured Pruning Framework for Transformer-based Models
+          </div>
+          <div class="pub-meta">
+            Z. Yao, L. Ma, S. Shen, K. Keutzer, and M. W. Mahoney, Technical Report, Preprint: arXiv:2105.14636 (2021)
+            <br />
+            <a href="https://arxiv.org/abs/2105.14636" target="_blank">Paper</a>
+          </div>
+      </div>
 
+        <div class="pub-item">
+          <div class="pub-title">
+            Comparison of Accuracy and Scalability of Gauss-Newton and Alternating Least Squares for CP Decomposition
+          </div>
+          <div class="pub-meta">
+            N. Singh, L. Ma, H. Yang, and E. Solomonik, SIAM Journal on Scientific Computing (SISC), 2021
+            <br />
+            <a href="https://epubs.siam.org/doi/10.1137/20M1344561" target="_blank">Paper</a> · <a href="https://github.com/cyclops-community/tensor_decomposition" target="_blank">Code</a>
+          </div>
+      </div>
 
-      <li itemscope itemtype="http://schema.org/CreativeWork">
-  <i class="fa-li fa fa-file-text-o pub-icon" aria-hidden="true"></i>
-   <div class="paper-title">
-       A Systematic Analysis of Second Order Optimization in Large-scale Neural Network Training
-    </div>
-    <div >
-        L. Ma, G. Montague, and J. Ye,
-    </div>
-    <div >
-        MEng Capstone Final Exam, 2nd May, 2019, Berkeley, CA    
-    </div>
-  <p> -->
-<!-- <a class="btn btn-primary btn-outline btn-xs" href="https://bradyrx.github.io/pdf/Brady_et_al-2018-Biogeosciences_supplemental.pdf">
-  Supplemental
-</a>  -->
-<!-- <a class="btn btn-primary btn-outline btn-xs" href="https://linjianma.github.io/pdf/Meng_final_exam.pdf" target="_blank">
-  Slides
-</a>
-<a class="btn btn-primary btn-outline btn-xs" href="https://linjianma.github.io/pdf/Meng_final_exam_poster.pdf" target="_blank">
-  Poster
-</a>
-</p>
-</li> -->
+        <div class="pub-item">
+          <div class="pub-title">
+            Efficient parallel CP decomposition with pairwise perturbation and multi-sweep dimension tree
+          </div>
+          <div class="pub-meta">
+            L. Ma and E. Solomonik, International Parallel and Distributed Processing Symposium (IPDPS), 2021
+            <br />
+            <a href="https://ieeexplore.ieee.org/document/9460504" target="_blank">Paper</a> · <a href="https://linjianma.github.io/pdf/IPDPS21-talk.pdf" target="_blank">Slides</a> · <a href="https://github.com/LinjianMa/parallel-pp" target="_blank">Code</a>
+          </div>
+      </div>
 
-<!--       
-      <li itemscope itemtype="http://schema.org/CreativeWork">
-  <i class="fa-li fa fa-file-text-o pub-icon" aria-hidden="true"></i>
-   <div class="paper-title">
-        Alternating Least Squares for Tensor Decomposition by Pairwise Perturbation
-    </div>
-    <div >
-        L. Ma and E. Solomonik,
-    </div>
-    <div >
-        Scientific Computing Seminar, 6th March, 2019, Berkeley, CA    
-    </div>
-  <p>
-<a class="btn btn-primary btn-outline btn-xs" href="https://bradyrx.github.io/pdf/Brady_et_al-2018-Biogeosciences_supplemental.pdf">
-  Supplemental
-</a> 
-<a class="btn btn-primary btn-outline btn-xs" href="https://linjianma.github.io/pdf/scicomptalk.pdf" target="_blank">
-  Slides
-</a>
-</p>
-</li> -->
+        <div class="pub-item">
+          <div class="pub-title">
+            AutoHOOT: Automatic High-Order Optimization for Tensors
+          </div>
+          <div class="pub-meta">
+            L. Ma, J. Ye, and E. Solomonik, International Conference on Parallel Architectures and Compilation Techniques (PACT'20)
+            <br />
+            <a href="https://dl.acm.org/doi/10.1145/3410463.3414647" target="_blank">Paper</a> · <a href="https://linjianma.github.io/pdf/PACT20-talk.pdf" target="_blank">Slides</a> · <a href="https://github.com/LinjianMa/AutoHOOT" target="_blank">Code</a>
+          </div>
+      </div>
 
+        <div class="pub-item">
+          <div class="pub-title">
+            Q-BERT: Hessian Based Ultra Low Precision Quantization of BERT
+          </div>
+          <div class="pub-meta">
+            S. Shen, Z. Dong, J. Ye, L. Ma, Z. Yao, A. Gholami, M. W. Mahoney, and K. Keutzer, AAAI 2020
+            <br />
+            <a href="https://arxiv.org/abs/1909.05840" target="_blank">Paper</a> · <a href="https://linjianma.github.io/pdf/QBERT-poster.pdf" target="_blank">Poster</a>
+          </div>
+      </div>
 
-<!--       <li itemscope itemtype="http://schema.org/CreativeWork">
-  <i class="fa-li fa fa-file-text-o pub-icon" aria-hidden="true"></i>
-   <div class="paper-title">
-        A Multiscale Model for the Reactive Mechanisms in Proton/Oxide Ion Conducting Solid Oxide Cells
-    </div>
-    <div >
-        L. Ma and N. R. Aluru,
-    </div>
-    <div >
-        PIRE Monthly Meething, 31st August, 2017, Champaign, IL
-    </div>
-  <p>
-<a class="btn btn-primary btn-outline btn-xs" href="https://linjianma.github.io/pdf/piretalk.pdf" target="_blank">
-  Slides
-</a>
-</p>
-</li> -->
+        <div class="pub-item">
+          <div class="pub-title">
+            Inefficiency of K-FAC for Large Batch Size Training
+          </div>
+          <div class="pub-meta">
+            L. Ma, G. Montague, J. Ye, Z. Yao, A. Gholami, K. Keutzer, and M. W. Mahoney, AAAI 2020
+            <br />
+            <a href="https://arxiv.org/abs/1903.06237" target="_blank">Paper</a> · <a href="https://linjianma.github.io/pdf/AAAI20-poster.pdf" target="_blank">Poster</a>
+          </div>
+      </div>
 
+        <div class="pub-item">
+          <div class="pub-title">
+            A Multiscale Model for Electrochemical Reactions in LSCF Based Solid Oxide Cells
+          </div>
+          <div class="pub-meta">
+            L. Ma, P. Priya, and N. R. Aluru, Journal of the Electrochemical Society (2018)
+            <br />
+            <a href="https://iopscience.iop.org/article/10.1149/2.0921814jes" target="_blank">Paper</a> · <a href="https://linjianma.github.io/pdf/usnccmtalk.pdf" target="_blank">Slides</a>
+          </div>
+      </div>
 
-<!--       <li itemscope itemtype="http://schema.org/CreativeWork">
-  <i class="fa-li fa fa-file-text-o pub-icon" aria-hidden="true"></i>
-   <div class="paper-title">
-        A Multiscale Model for the Oxygen Reduction and Oxidation Reactions in LSCF Based Solid Oxide Cells
-    </div>
-    <div >
-        L. Ma and N. R. Aluru,
-    </div>
-    <div >
-        14th US National Congress on Computational Mechanics, 19th July, 2017, Montreal, Canada
-    </div>
-  <p>
-<a class="btn btn-primary btn-outline btn-xs" href="https://linjianma.github.io/pdf/usnccmtalk.pdf" target="_blank">
-  Slides
-</a>
-</p>
-</li> -->
-      
+        <div class="pub-item">
+          <div class="pub-title">
+            A Multiscale Model for the Oxide Ion Conducting and Proton Conducting Solid Oxide Cells
+          </div>
+          <div class="pub-meta">
+            L. Ma, M.S. Thesis, University of Illinois Urbana-Champaign (2018)
+            <br />
+            <a href="https://www.ideals.illinois.edu/items/107194" target="_blank">Thesis</a> · <a href="https://linjianma.github.io/pdf/piretalk.pdf" target="_blank">Slides</a>
+          </div>
+      </div>
+    </section>
 
-      
-<!--     </ul>
-  </div>
-</div>
+    <!-- Awards -->
+    <section id="awards">
+      <h2>Awards</h2>
+      <p class="section-subtitle">
+        Selected recognitions.
+      </p>
+        <div><span class="award-year">2021-2022</span>Mavis Future Faculty Fellow, UIUC</div>
+        <div><span class="award-year">2021</span>Kenichi Miura Award, UIUC</div>
+        <div><span class="award-year">2020</span>Kuck Computational Science and Engineering Scholarship, UIUC</div>
+        <div><span class="award-year">2019</span>Computer Science Gene Golub Fellowship, UIUC</div>
+        <div><span class="award-year">2016</span>Graduate with Honor, ZJU</div>
+        <div><span class="award-year">2015</span>Meritorious Winner, Mathematical Contest In Modeling, MCM</div>
+        <div><span class="award-year">2014</span>National Scholarship for Undergraduate, ZJU</div>
+        <div><span class="award-year">2013-2014</span>The First Class Scholarship for Outstanding Students, ZJU</div>
+        <div><span class="award-year">2013</span>The First Prize in China Undergraduates Mathematical Contest</div>
+    </section>
 
-    </div>
-</section> -->
+    <!-- Blog -->
+<section id="blog">
+  <h2>Blog</h2>
+  <p class="section-subtitle">
+    Shared notes on research and work, coming soon.
+  </p>
+    <div class="blog-list">
 
+<!--       <article class="blog-item">
+        <div class="blog-date">Nov 8</div>
+        <div>
+          <div class="blog-title">
+            <a href="posts/notes-manifold-scratchpad.html">Manifold scratchpad</a>
+          </div>
+          <div class="blog-author">Notes</div>
+        </div>
+      </article>
 
+      <article class="blog-item">
+        <div class="blog-date">Oct 29</div>
+        <div>
+          <div class="blog-title">
+            <a href="posts/research-highlight-neural-guidance.html">Neural guidance as a tool for probing visual robustness</a>
+          </div>
+          <div class="blog-author">Research highlight</div>
+        </div>
+      </article>
 
-
-
-
-
-
-
-  <section id="talks" class="home-section">
-    <div class="container">
-      
-
-<div class="row">
-  <div class="col-xs-12 col-md-4 section-heading">
-    <h1>Other Projects</h1>  
-  </div>
-  <div class="col-xs-12 col-md-8">
-        
-    <ul class="fa-ul">
-
-
-
-      <li itemscope itemtype="http://schema.org/CreativeWork">
-  <i class="fa-li fa fa-file-text-o pub-icon" aria-hidden="true"></i>
-   <div class="paper-title">
-       An empirical study of neural ordinal differential equations
-    </div>
-  <p>
-<!-- <a class="btn btn-primary btn-outline btn-xs" href="https://bradyrx.github.io/pdf/Brady_et_al-2018-Biogeosciences_supplemental.pdf">
-  Supplemental
-</a>  -->
-<a class="btn btn-primary btn-outline btn-xs" href="https://linjianma.github.io/pdf/282_project_report_ode.pdf" target="_blank">
-  Report
-</a>
-<a class="btn btn-primary btn-outline btn-xs" href="https://linjianma.github.io/pdf/282_ODE_poster.pdf" target="_blank">
-  Poster
-</a>
-</p>
-</li>
-
-      <li itemscope itemtype="http://schema.org/CreativeWork">
-  <i class="fa-li fa fa-file-text-o pub-icon" aria-hidden="true"></i>
-   <div class="paper-title">
-       Convex analysis of Nonnegative Matrix Factorization
-    </div>
-  <p>
-<!-- <a class="btn btn-primary btn-outline btn-xs" href="https://bradyrx.github.io/pdf/Brady_et_al-2018-Biogeosciences_supplemental.pdf">
-  Supplemental
-</a>  -->
-<a class="btn btn-primary btn-outline btn-xs" href="https://linjianma.github.io/pdf/NMF_227B_final_report.pdf" target="_blank">
-  Report
-</a>
-</p>
-</li>
-      
-
-      
-    </ul>
-  </div>
-</div>
+      <article class="blog-item">
+        <div class="blog-date">Sep 10</div>
+        <div>
+          <div class="blog-title">
+            <a href="posts/figures-frequency-bands.html">Looking at frequency bands in robust models</a>
+          </div>
+          <div class="blog-author">Figures</div>
+        </div>
+      </article> -->
 
     </div>
 </section>
 
 
+    <footer>
+      <div>© <span id="year"></span> Linjian Ma</div>
+    </footer>
 
+  </main>
 
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 
-
-
-
-
-
-
-
-<section id="awards" class="home-section">
-    <div class="container">
-      
-
-<div class="row">
-  <div class="col-xs-14 col-md-4 section-heading">
-    <h1>Awards</h1>
-  </div>
-
-  <div class="col-xs-12 col-md-8">
-              <li>Mavis Future Faculty Fellow, UIUC (2021-2022)</li>
-              <li>Kenichi Miura Award, UIUC (2021)</li>
-              <li>Kuck Computational Science and Engineering Scholarship, UIUC (2020)</li>
-              <li>Computer Science Gene Golub Fellowship, UIUC (2019)</li>
-              <li>Graduate with Honor, ZJU (2016)</li>
-              <li>Meritorious Winner, Mathematical Contest In Modeling, MCM (2015)</li>
-              <li>National Scholarship for Undergraduate, ZJU (2014)</li>
-              <li>The First Class Scholarship for Outstanding Students, ZJU (2013-2014)</li>
-              <li>The First Prize in China Undergraduates Mathematical Contest (2013)</li>
-</div>
-
-
-</div>
-
-    </div>
-</section>
-
-
-
-
-
-  
-  
-<section id="contact" class="home-section">
-  <div class="container">
-
-<div class="row">
-  <div class="col-xs-12 col-md-4 section-heading">
-    <h1>Contact</h1>
-<!--     <p>Drop me a line</p>
- -->  </div>
-  <div class="col-xs-12 col-md-8">
-    
-
-    <ul class="fa-ul">
-
-      
-      <li>
-        <i class="fa-li fa fa-envelope fa-2x" aria-hidden="true"></i>
-        <span><a href="mailto:malinjianev@gmail.com">malinjianev@gmail.com</a></span>
-      </li>
-      
-      <li>
-        <i class="fa-li fa fa-phone fa-2x" aria-hidden="true"></i>
-        <span><a href="tel:%28217%29%20979-7114">(217) 979-7114</a></span>
-      </li>
-  
-<!--       <li>
-        <i class="fa-li fa fa-map-marker fa-2x" aria-hidden="true"></i>
-        <span>Institute of Arctic and Alpine Research, University of Colorado, Campus Box 450, Boulder, CO 80309</span>
-      </li> -->
-      
-    </ul>
-
-  </div>
-</div>
-
-    </div>
-  </section>
-
-
-
-<footer class="site-footer">
-  <div class="container">
-    <p class="powered-by">
-
-      &copy; 2021 Linjian Ma &middot; 
-
-      Powered by the <a href="https://github.com/gcushen/hugo-academic" target="_blank">Academic
-      theme</a> for <a href="http://gohugo.io" target="_blank">Hugo</a>.
-
-      <span class="pull-right" aria-hidden="true">
-        <a href="#" id="back_to_top">
-          <span class="button_icon">
-            <i class="fa fa-chevron-up fa-2x"></i>
-          </span>
-        </a>
-      </span>
-
-    </p>
-  </div>
-</footer>
-
-    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/ScrollToPlugin.min.js"></script>
-    <script src="/js/jquery-1.12.3.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/isotope.pkgd.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.1/imagesloaded.pkgd.min.js"></script>
-    <script src="/js/hugo-academic.js"></script>
-    
-
-    
-    <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-        ga('create', 'UA-90792639-1', 'auto');
-        ga('send', 'pageview');
-
-         
-        var links = document.querySelectorAll('a');
-        Array.prototype.map.call(links, function(item) {
-            if (item.host != document.location.host) {
-                item.addEventListener('click', function() {
-                    var action = item.getAttribute('data-action') || 'follow';
-                    ga('send', 'event', 'outbound', action, item.href);
-                });
-            }
-        });
-    </script>
-    
-
-    
-    
-      
-      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
-
-      
-      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/languages/python.min.js"></script>
-      
-      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/languages/shell.min.js"></script>
-      
-      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/languages/bash.min.js"></script>
-      
-
-      
-
-      <script>hljs.initHighlightingOnLoad();</script>
-    
-
-    
-    
-    <script type="text/x-mathjax-config">
-        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
-    </script>
-    <script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML"></script>
-    
-
-  </body>
+</body>
 </html>
 
